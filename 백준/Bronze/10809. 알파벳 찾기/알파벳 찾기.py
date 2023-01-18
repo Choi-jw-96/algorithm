@@ -2,13 +2,13 @@ S = str(input())
 alpha = "abcdefghijklmnopqrstuvwxyz"
 # cnt = []
 
-for ap in alpha:
-    # cnt.append(S.find(ap))
+for abc in alpha:
+    # cnt.append(S.find(abc))
 #print(*cnt)
-    print(S.find(ap), end = " ")
+    print(S.find(abc), end = " ")
 
 # ## 아스키 버전
 # alpha = range(97, 123)
 
-# for ap in alpha:
-#     print(S.find(chr(ap)), end =" ")
+# for abc in alpha:
+#     print(S.find(chr(abc)), end =" ")
