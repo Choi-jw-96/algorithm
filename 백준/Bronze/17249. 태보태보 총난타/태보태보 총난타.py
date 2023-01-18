@@ -1,0 +1,5 @@
+teabo = str(input())
+face = teabo.find("(^0^)")
+L_rock = teabo.count("@", 0, face)
+R_rock = teabo.count("@", face, len(teabo))
+print(L_rock, R_rock)
