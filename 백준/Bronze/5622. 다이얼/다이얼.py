@@ -8,4 +8,5 @@ for P in phone:
     for num, alpha in tel.items():
         if P in alpha:
             time += num + 1
+            break
 print(time)
