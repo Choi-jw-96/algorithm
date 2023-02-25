@@ -1,27 +1,34 @@
 import sys
+input = sys.stdin.readline
 sys.setrecursionlimit(10**6)
 
-def paint_star(LEN):
-    DIV3 = LEN//3
-    if LEN == 3:
-        g[1] = ['*', ' ', '*']
-        g[0][:3] = g[2][:3] = ['*']*3
+
+def star(n):
+    m = n // 3
+
+    if n == 3:
+        graph[1] = ["*", " ", "*"]
+        graph[0][:3] = graph[2][:3] = ["*"] * 3
         return
     
-    paint_star(DIV3)
+    star(m)
+    
+    for i in range(0, n, m):
+        for j in range(0, n, m):
+            if i != m or j != m:
+                for k in range(m):
+                    graph[i + k][j : j + m] = graph[k][:m]
+    
 
-    for i in range(0, LEN, DIV3):
-        for j in range(0, LEN, DIV3):
-            if i != DIV3 or j != DIV3:
-                for k in range(DIV3):
-                    g[i+k][j:j+DIV3] = g[k][:DIV3]
 
-n = int(sys.stdin.readline().strip())
-g = [[' ' for _ in range(n)] for _ in range(n)]
+N = int(input())
+graph = [[" " for _ in range(N)] for _ in range(N)]
 
-paint_star(n)
 
-for i in range(n):
-    for j in range(n):
-        print(g[i][j], end='')
+star(N)
+
+for i in range(N):
+    for j in range(N):
+        print(graph[i][j], end = "")
     print()
+
