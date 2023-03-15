@@ -7,14 +7,10 @@ def DFS(start):
     visited[start] = True
     cnt += 1
 
-    for _ in range(2):
-        if _ == 0:
-            newstart = start + stone[start]
-        else:
-            newstart = start - stone[start]
-        
-        if 0 <= newstart < n and not visited[newstart]:
-            DFS(newstart)
+    if (0 <= start + stone[start] < n and not visited[start + stone[start]]):
+        DFS(start + stone[start])
+    if (0 <= start - stone[start] < n and not visited[start - stone[start]]):
+        DFS(start - stone[start])
 
 
 n = int(input())
@@ -26,3 +22,4 @@ cnt = 0
 DFS(start-1)
 
 print(cnt)
+
